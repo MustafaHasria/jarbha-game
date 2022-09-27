@@ -81,10 +81,4 @@ public abstract class JarbhaDatabase extends RoomDatabase {
         }
     }
     //endregion
-
-    //region Test
-    public void getName(){
-        int x,y,z;
-    }
-    //endregion
 }
