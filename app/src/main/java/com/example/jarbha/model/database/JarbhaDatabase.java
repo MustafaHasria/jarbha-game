@@ -82,7 +82,5 @@ public abstract class JarbhaDatabase extends RoomDatabase {
     }
     //endregion
 
-    //region Test
 
-    //endregion
 }
