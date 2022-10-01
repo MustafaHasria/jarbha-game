@@ -5,15 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.jarbha.R;
+import com.example.jarbha.databinding.ActivityMainBinding;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    //region Variables
+    ActivityMainBinding binding;
+    private CategoryAdapter categoryAdapter;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        categoryAdapter = new CategoryAdapter();
     }
 }
