@@ -46,6 +46,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
     //endregion
 
+    //region Methods
+    public void updateList(List<CategoryEntity> categoryEntityList) {
+        this.categoryEntityList.clear();
+        this.categoryEntityList = categoryEntityList;
+        notifyDataSetChanged();
+    }
+    //endregion
+
     //region View holder
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
