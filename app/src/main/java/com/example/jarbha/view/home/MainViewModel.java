@@ -1,4 +1,4 @@
-package com.example.jarbha.view.main;
+package com.example.jarbha.view.home;
 
 import android.app.Application;
 

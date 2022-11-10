@@ -31,16 +31,15 @@ public class CategoryRepository {
     public void insertCategory(CategoryEntity categoryEntity) {
         new InsertCategoryTask(categoryDao).execute(categoryEntity);
     }
+
     public void deleteCategory(CategoryEntity categoryEntity) {
         new DeleteCategoryTask(categoryDao).execute(categoryEntity);
     }
+
     public void updateCategory(CategoryEntity categoryEntity) {
         new UpdateCategoryTask(categoryDao).execute(categoryEntity);
     }
 
-    public LiveData<List<CategoryEntity>> getAllCategories() {
-        return getAllCategories();
-    }
 
     //endregion
 

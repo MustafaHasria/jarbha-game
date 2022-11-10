@@ -26,6 +26,10 @@ public interface QuestionDao {
     @Query("Select * from question_table where is_hard")
     LiveData<List<QuestionEntity>> getAllHardQuestion();
 
+    @Query("Select * from question_table where name_category = :nameCategory")
+    LiveData<List<QuestionEntity>> getAllQuestionByCategory(String nameCategory);
+
+
     @Query("Delete from question_table")
     Void deleteAll();
 }

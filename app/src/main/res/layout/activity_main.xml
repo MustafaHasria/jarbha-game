@@ -4,7 +4,7 @@
     android:background="@drawable/vv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main.MainActivity">
+    tools:context=".view.home.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_main_recycler_view"

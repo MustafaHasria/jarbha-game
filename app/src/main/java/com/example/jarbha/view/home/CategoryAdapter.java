@@ -1,4 +1,4 @@
-package com.example.jarbha.view.main;
+package com.example.jarbha.view.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +18,16 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
     //region Variables
     private List<CategoryEntity> categoryEntityList;
+    private CategoryAdapterClickListeners clickListeners;
     //endregion
 
     //region Constructor
 
-    public CategoryAdapter(List<CategoryEntity> categoryEntityList) {
+    public CategoryAdapter(List<CategoryEntity> categoryEntityList, CategoryAdapterClickListeners clickListeners) {
         this.categoryEntityList = categoryEntityList;
+        this.clickListeners = clickListeners;
     }
+
 
     //endregion
 
@@ -40,6 +43,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.itemRecyclerViewCategoryTextViewName.setText(categoryEntityList.get(position).getName());
         holder.itemRecyclerViewCategoryPicture.setImageResource(categoryEntityList.get(position).getPicture());
+        //Bad way
+//        holder.itemRecyclerViewCategoryPicture.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+
+
     }
 
     @Override
@@ -56,8 +68,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
     //endregion
 
+    //region Interface
+    interface CategoryAdapterClickListeners {
+        void onItemRecyclerViewCategoryCardViewMainContainerClickListener(int position, CategoryEntity categoryEntity);
+    }
+    //endregion
+
     //region View holder
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
+    public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         //region Components
         CardView itemRecyclerViewCategoryCardViewMainContainer;
@@ -69,7 +87,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             super(itemView);
             itemRecyclerViewCategoryCardViewMainContainer = itemView.findViewById(R.id.item_recycler_view_category_card_view_main_container);
             itemRecyclerViewCategoryTextViewName = itemView.findViewById(R.id.item_recycler_view_category_text_view_name);
-            itemRecyclerViewCategoryPicture=itemView.findViewById(R.id.item_recycler_view_category_picture);
+            itemRecyclerViewCategoryPicture = itemView.findViewById(R.id.item_recycler_view_category_picture);
+
+            itemRecyclerViewCategoryCardViewMainContainer.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            clickListeners.onItemRecyclerViewCategoryCardViewMainContainerClickListener(getAdapterPosition(), categoryEntityList.get(getAdapterPosition()));
         }
     }
     //endregion

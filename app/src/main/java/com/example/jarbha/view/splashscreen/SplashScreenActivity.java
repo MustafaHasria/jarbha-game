@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.jarbha.view.main.MainActivity;
+import com.example.jarbha.view.home.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
