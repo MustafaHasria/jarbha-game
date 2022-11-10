@@ -31,9 +31,20 @@ public class CategoryRepository {
     public void insertCategory(CategoryEntity categoryEntity) {
         new InsertCategoryTask(categoryDao).execute(categoryEntity);
     }
+    public void deleteCategory(CategoryEntity categoryEntity) {
+        new DeleteCategoryTask(categoryDao).execute(categoryEntity);
+    }
+    public void updateCategory(CategoryEntity categoryEntity) {
+        new UpdateCategoryTask(categoryDao).execute(categoryEntity);
+    }
+
+    public LiveData<List<CategoryEntity>> getAllCategories() {
+        return getAllCategories();
+    }
+
     //endregion
 
-    //region Async tasks
+    //region Async tasks insert
     private static class InsertCategoryTask extends AsyncTask<CategoryEntity, Void, Void> {
         //region Variables
         CategoryDao categoryDao;
@@ -54,4 +65,49 @@ public class CategoryRepository {
 
     //endregion
 
+    //region Async tasks delete
+    private static class DeleteCategoryTask extends AsyncTask<CategoryEntity, Void, Void> {
+        //region Variables
+        CategoryDao categoryDao;
+        //endregion
+
+        //region Constructor
+        public DeleteCategoryTask(CategoryDao categoryDao) {
+            this.categoryDao = categoryDao;
+        }
+        //endregion
+
+        @Override
+        protected Void doInBackground(CategoryEntity... categoryEntities) {
+            categoryDao.delete(categoryEntities[0]);
+
+
+            return null;
+        }
+    }
+
+    //endregion
+
+    //region Async tasks update
+    private static class UpdateCategoryTask extends AsyncTask<CategoryEntity, Void, Void> {
+        //region Variables
+        CategoryDao categoryDao;
+        //endregion
+
+        //region Constructor
+        public UpdateCategoryTask(CategoryDao categoryDao) {
+            this.categoryDao = categoryDao;
+        }
+        //endregion
+
+        @Override
+        protected Void doInBackground(CategoryEntity... categoryEntities) {
+            categoryDao.update(categoryEntities[0]);
+
+
+            return null;
+        }
+    }
+
+    //endregion
 }

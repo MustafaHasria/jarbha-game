@@ -29,6 +29,8 @@ public abstract class JarbhaDatabase extends RoomDatabase {
             super.onCreate(db);
             new PopulateDbAsyncTask(instance).execute();
         }
+
+
     };
 
     public static JarbhaDatabase getInstance(Context context) {
@@ -65,7 +67,7 @@ public abstract class JarbhaDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            categoryDao.insert(new CategoryEntity("رياضة", R.drawable.ic_sport));
+            categoryDao.insert(new CategoryEntity("س",R.drawable.ic__science));
             categoryDao.insert(new CategoryEntity("أفلام", R.drawable.ic_movie));
             categoryDao.insert(new CategoryEntity("ميديا", R.drawable.ic_media));
             categoryDao.insert(new CategoryEntity("أغاني", R.drawable.ic_music));

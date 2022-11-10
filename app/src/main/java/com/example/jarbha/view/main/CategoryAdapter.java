@@ -3,6 +3,7 @@ package com.example.jarbha.view.main;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.itemRecyclerViewCategoryTextViewName.setText(categoryEntityList.get(position).getName());
+        holder.itemRecyclerViewCategoryPicture.setImageResource(categoryEntityList.get(position).getPicture());
     }
 
     @Override
@@ -60,12 +62,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         //region Components
         CardView itemRecyclerViewCategoryCardViewMainContainer;
         TextView itemRecyclerViewCategoryTextViewName;
+        ImageView itemRecyclerViewCategoryPicture;
         //endregion
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             itemRecyclerViewCategoryCardViewMainContainer = itemView.findViewById(R.id.item_recycler_view_category_card_view_main_container);
             itemRecyclerViewCategoryTextViewName = itemView.findViewById(R.id.item_recycler_view_category_text_view_name);
+            itemRecyclerViewCategoryPicture=itemView.findViewById(R.id.item_recycler_view_category_picture);
         }
     }
     //endregion

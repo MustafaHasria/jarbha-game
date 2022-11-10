@@ -15,7 +15,7 @@ import com.example.jarbha.model.entity.CategoryEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     //region Variables
     ActivityMainBinding binding;
     private CategoryAdapter categoryAdapter;

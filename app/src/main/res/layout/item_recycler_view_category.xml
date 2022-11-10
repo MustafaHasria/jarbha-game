@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_recycler_view_category_card_view_main_container"
-
+    app:cardCornerRadius="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -15,4 +16,12 @@
         android:text="Name of category"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:padding="10dp"
+        android:id="@+id/item_recycler_view_category_picture"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_sport"/>
+
 </androidx.cardview.widget.CardView>
