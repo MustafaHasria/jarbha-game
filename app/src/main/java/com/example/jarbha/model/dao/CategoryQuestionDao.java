@@ -7,10 +7,10 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.jarbha.model.entity.CategoryEntity;
 import com.example.jarbha.model.entity.CategoryQuestionEntity;
 
 import java.util.List;
+
 @Dao
 public interface CategoryQuestionDao {
 
@@ -24,5 +24,8 @@ public interface CategoryQuestionDao {
     void delete(CategoryQuestionEntity categoryQuestionEntity);
 
     @Query("Select * From CATEGORY_QUESTION_TABLE")
-    LiveData<List<CategoryQuestionEntity>> getAllCategories();
+    LiveData<List<CategoryQuestionEntity>> getAllQuestions();
+
+    @Query("Select * From CATEGORY_QUESTION_TABLE where id_category=:categoryId ")
+    LiveData<List<CategoryQuestionEntity>> getAllQuestionsByCategoryId(int categoryId);
 }

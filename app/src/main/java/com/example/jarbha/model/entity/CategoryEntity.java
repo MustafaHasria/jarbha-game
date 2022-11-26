@@ -20,7 +20,6 @@ public class CategoryEntity {
 
     @ColumnInfo(name = "background")
     private int background;
-
     //endregion
 
     //region Constructor

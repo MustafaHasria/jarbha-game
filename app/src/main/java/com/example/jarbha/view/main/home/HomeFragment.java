@@ -73,10 +73,13 @@ public class HomeFragment extends Fragment implements CategoryAdapter.CategoryAd
 
     @Override
     public void onItemRecyclerViewCategoryCardViewMainContainerClickListener(int position, CategoryEntity categoryEntity) {
+
+        //todo add dialog to choose game level
         Bundle bundle = new Bundle();
         bundle.putString("NAME_CATEGORY", categoryEntity.getName());
+        bundle.putInt("CATEGORY_ID", 3);
         QuestionsFragment questionsFragment = new QuestionsFragment();
-
+        questionsFragment.setArguments(bundle);
         FragmentTransaction fragmentTransaction =
                 requireActivity().getSupportFragmentManager().beginTransaction();
 

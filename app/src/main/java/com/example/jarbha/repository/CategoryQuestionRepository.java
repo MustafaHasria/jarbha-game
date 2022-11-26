@@ -6,10 +6,8 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.jarbha.model.dao.CategoryDao;
 import com.example.jarbha.model.dao.CategoryQuestionDao;
 import com.example.jarbha.model.database.JarbhaDatabase;
-import com.example.jarbha.model.entity.CategoryEntity;
 import com.example.jarbha.model.entity.CategoryQuestionEntity;
 
 import java.util.List;
@@ -27,8 +25,12 @@ public class CategoryQuestionRepository {
     //endregion
 
     //region Methods
-    public LiveData<List<CategoryQuestionEntity>> getAllCategories() {
-        return categoryQuestionDao.getAllCategories();
+    public LiveData<List<CategoryQuestionEntity>> getAllCategoryQuestions() {
+        return categoryQuestionDao.getAllQuestions();
+    }
+
+    public LiveData<List<CategoryQuestionEntity>> getAllQuestionsByCategoryId(int categoryId) {
+        return categoryQuestionDao.getAllQuestionsByCategoryId(categoryId);
     }
 
     public void insertCategoryQuestion(CategoryQuestionEntity categoryQuestionEntity) {

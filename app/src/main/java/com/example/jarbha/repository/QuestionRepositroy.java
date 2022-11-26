@@ -1,13 +1,12 @@
 package com.example.jarbha.repository;
+
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.jarbha.model.dao.CategoryDao;
 import com.example.jarbha.model.dao.QuestionDao;
 import com.example.jarbha.model.database.JarbhaDatabase;
-import com.example.jarbha.model.entity.CategoryEntity;
 import com.example.jarbha.model.entity.QuestionEntity;
 
 import java.util.List;
@@ -28,6 +27,11 @@ public class QuestionRepositroy {
     public LiveData<List<QuestionEntity>> getQuestion() {
         return questionDao.getAllHardQuestion();
     }
+
+    public LiveData<QuestionEntity> getQuestionById(int questionId) {
+        return questionDao.getQuestionById(questionId);
+    }
+
 
     public void insertQuestion(QuestionEntity questionEntity) {
         new InsertQuestionTask(questionDao).execute(questionEntity);

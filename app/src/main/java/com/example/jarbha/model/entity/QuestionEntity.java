@@ -25,19 +25,16 @@ public class QuestionEntity {
     private String wrongAnswerThree;
     @ColumnInfo(name = "is_hard")
     private boolean isHard;
-    @ColumnInfo(name = "name_category")
-    private String nameCategory;
     //endregion
 
     //region Constructor
-    public QuestionEntity(String question, String answer, String wrongAnswerOne, String wrongAnswerTwo, String wrongAnswerThree, boolean isHard, String nameCategory) {
+    public QuestionEntity(String question, String answer, String wrongAnswerOne, String wrongAnswerTwo, String wrongAnswerThree, boolean isHard) {
         this.question = question;
         this.answer = answer;
         this.wrongAnswerOne = wrongAnswerOne;
         this.wrongAnswerTwo = wrongAnswerTwo;
         this.wrongAnswerThree = wrongAnswerThree;
         this.isHard = isHard;
-        this.nameCategory = nameCategory;
     }
 
     //endregion
@@ -98,14 +95,6 @@ public class QuestionEntity {
 
     public void setHard(boolean hard) {
         isHard = hard;
-    }
-
-    public String getNameCategory() {
-        return nameCategory;
-    }
-
-    public void setNameCategory(String nameCategory) {
-        this.nameCategory = nameCategory;
     }
 
     //endregion

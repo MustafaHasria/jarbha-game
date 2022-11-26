@@ -59,24 +59,29 @@ public abstract class JarbhaDatabase extends RoomDatabase {
 
         private CategoryDao categoryDao;
         private QuestionDao questionDao;
+        private CategoryQuestionDao categoryQuestionDao;
 
         public PopulateDbAsyncTask(JarbhaDatabase jarbhaDatabase) {
             categoryDao = jarbhaDatabase.categoryDao();
             questionDao = jarbhaDatabase.questionDao();
+            categoryQuestionDao = jarbhaDatabase.categoryQuestionDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            categoryDao.insert(new CategoryEntity("Sport", R.drawable.icon_sport,R.drawable.card_yellow));
-            categoryDao.insert(new CategoryEntity("Sciences", R.drawable.icon_science,R.drawable.card_green));
-            categoryDao.insert(new CategoryEntity("Gaming", R.drawable.icon_gaming,R.drawable.card_blue));
-            categoryDao.insert(new CategoryEntity("Music", R.drawable.icon_music,R.drawable.card_orange));
-            categoryDao.insert(new CategoryEntity("Movie", R.drawable.icon_youtube,R.drawable.card_red));
-            categoryDao.insert(new CategoryEntity("Think", R.drawable.icon_calculate,R.drawable.card_neal));
+            categoryDao.insert(new CategoryEntity("Sport", R.drawable.icon_sport, R.drawable.card_yellow));
+            categoryDao.insert(new CategoryEntity("Sciences", R.drawable.icon_science, R.drawable.card_green));
+            categoryDao.insert(new CategoryEntity("Gaming", R.drawable.icon_gaming, R.drawable.card_blue));
+            categoryDao.insert(new CategoryEntity("Music", R.drawable.icon_music, R.drawable.card_orange));
+            categoryDao.insert(new CategoryEntity("Movie", R.drawable.icon_youtube, R.drawable.card_red));
+            categoryDao.insert(new CategoryEntity("Think", R.drawable.icon_calculate, R.drawable.card_neal));
 
+            questionDao.insert(new QuestionEntity("من هو افضل لاعب في العالم؟", "ميسي", "يشسي", "سشيسشي", "سشيشسي", false));
+            questionDao.insert(new QuestionEntity("من هو افضل هداف في العالم؟", "جان", "يشسي", "سشيسشي", "سشيشسي", false));
 
-            //todo dialog
-//            questionDao.insert(new QuestionEntity("من هو افضل لاعب في العالم؟","ميسي" , "يشسي", "سشيسشي", "سشيشسي", false, "رياضة"));
+            categoryQuestionDao.insert(new CategoryQuestionEntity(1, 1));
+            categoryQuestionDao.insert(new CategoryQuestionEntity(1, 2));
+            categoryQuestionDao.insert(new CategoryQuestionEntity(2, 2));
             return null;
         }
     }
