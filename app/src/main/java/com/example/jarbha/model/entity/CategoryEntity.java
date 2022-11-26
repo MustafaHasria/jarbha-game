@@ -17,13 +17,18 @@ public class CategoryEntity {
 
     @ColumnInfo(name = "picture")
     private int picture;
+
+    @ColumnInfo(name = "background")
+    private int background;
+
     //endregion
 
     //region Constructor
 
-    public CategoryEntity(String name, int picture) {
+    public CategoryEntity(String name, int picture,int background) {
         this.name = name;
         this.picture = picture;
+        this.background=background;
     }
 
     //endregion
@@ -54,5 +59,12 @@ public class CategoryEntity {
         this.picture = picture;
     }
 
+    public int getBackground() {
+        return background;
+    }
+
+    public void setBackground(int background) {
+        this.background = background;
+    }
     //endregion
 }

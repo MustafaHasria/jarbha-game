@@ -32,6 +32,14 @@ public class QuestionRepositroy {
     public void insertQuestion(QuestionEntity questionEntity) {
         new InsertQuestionTask(questionDao).execute(questionEntity);
     }
+
+    public void deleteQuestion(QuestionEntity questionEntity) {
+        new DeleteQuestionTask(questionDao).execute(questionEntity);
+    }
+
+    public void updateQuestion(QuestionEntity questionEntity) {
+        new UpdateQuestionTask(questionDao).execute(questionEntity);
+    }
     //endregion
 
     //region Async tasks
@@ -55,4 +63,47 @@ public class QuestionRepositroy {
 
     //endregion
 
+
+    //region Async tasks
+    private static class DeleteQuestionTask extends AsyncTask<QuestionEntity, Void, Void> {
+        //region Variables
+        QuestionDao questionDao;
+        //endregion
+
+        //region Constructor
+        public DeleteQuestionTask(QuestionDao questionDao) {
+            this.questionDao = questionDao;
+        }
+        //endregion
+
+        @Override
+        protected Void doInBackground(QuestionEntity... questionEntities) {
+            questionDao.delete(questionEntities[0]);
+            return null;
+        }
+    }
+
+    //endregion
+
+
+    //region Async tasks
+    private static class UpdateQuestionTask extends AsyncTask<QuestionEntity, Void, Void> {
+        //region Variables
+        QuestionDao questionDao;
+        //endregion
+
+        //region Constructor
+        public UpdateQuestionTask(QuestionDao questionDao) {
+            this.questionDao = questionDao;
+        }
+        //endregion
+
+        @Override
+        protected Void doInBackground(QuestionEntity... questionEntities) {
+            questionDao.update(questionEntities[0]);
+            return null;
+        }
+    }
+
+    //endregion
 }

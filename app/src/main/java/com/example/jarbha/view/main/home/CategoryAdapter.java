@@ -1,9 +1,10 @@
-package com.example.jarbha.view.home;
+package com.example.jarbha.view.main.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +24,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     //region Constructor
 
-    public CategoryAdapter(List<CategoryEntity> categoryEntityList, CategoryAdapterClickListeners clickListeners) {
+    public CategoryAdapter(List<CategoryEntity> categoryEntityList ,CategoryAdapterClickListeners clickListeners) {
         this.categoryEntityList = categoryEntityList;
         this.clickListeners = clickListeners;
     }
@@ -43,6 +44,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.itemRecyclerViewCategoryTextViewName.setText(categoryEntityList.get(position).getName());
         holder.itemRecyclerViewCategoryPicture.setImageResource(categoryEntityList.get(position).getPicture());
+        holder.itemRecyclerViewCardBackground.setBackgroundResource(categoryEntityList.get(position).getBackground());
+
         //Bad way
 //        holder.itemRecyclerViewCategoryPicture.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -81,6 +84,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         CardView itemRecyclerViewCategoryCardViewMainContainer;
         TextView itemRecyclerViewCategoryTextViewName;
         ImageView itemRecyclerViewCategoryPicture;
+        LinearLayout itemRecyclerViewCardBackground;
+
         //endregion
 
         public CategoryViewHolder(@NonNull View itemView) {
@@ -88,6 +93,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             itemRecyclerViewCategoryCardViewMainContainer = itemView.findViewById(R.id.item_recycler_view_category_card_view_main_container);
             itemRecyclerViewCategoryTextViewName = itemView.findViewById(R.id.item_recycler_view_category_text_view_name);
             itemRecyclerViewCategoryPicture = itemView.findViewById(R.id.item_recycler_view_category_picture);
+            itemRecyclerViewCardBackground = itemView.findViewById(R.id.item_recycler_view_card_background);
 
             itemRecyclerViewCategoryCardViewMainContainer.setOnClickListener(this);
         }

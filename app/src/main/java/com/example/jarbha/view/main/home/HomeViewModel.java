@@ -1,4 +1,4 @@
-package com.example.jarbha.view.home;
+package com.example.jarbha.view.main.home;
 
 import android.app.Application;
 
@@ -11,14 +11,14 @@ import com.example.jarbha.repository.CategoryRepository;
 
 import java.util.List;
 
-public class MainViewModel extends AndroidViewModel {
+public class HomeViewModel extends AndroidViewModel {
 
     //region Variables
     CategoryRepository categoryRepository;
     //endregion
 
     //region Constructor
-    public MainViewModel(@NonNull Application application) {
+    public HomeViewModel(@NonNull Application application) {
         super(application);
         categoryRepository = new CategoryRepository(application);
     }

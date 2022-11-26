@@ -67,15 +67,15 @@ public abstract class JarbhaDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            categoryDao.insert(new CategoryEntity("س",R.drawable.ic__science));
-            categoryDao.insert(new CategoryEntity("أفلام", R.drawable.ic_movie));
-            categoryDao.insert(new CategoryEntity("ميديا", R.drawable.ic_media));
-            categoryDao.insert(new CategoryEntity("أغاني", R.drawable.ic_music));
-            categoryDao.insert(new CategoryEntity("فكر", R.drawable.ic_think));
-            categoryDao.insert(new CategoryEntity("علوم", R.drawable.ic__science));
-            categoryDao.insert(new CategoryEntity("العاب", R.drawable.ic__gaming));
-            categoryDao.insert(new CategoryEntity("جغرافيا", R.drawable.ic_geography));
+            categoryDao.insert(new CategoryEntity("Sport", R.drawable.icon_sport,R.drawable.card_yellow));
+            categoryDao.insert(new CategoryEntity("Sciences", R.drawable.icon_science,R.drawable.card_green));
+            categoryDao.insert(new CategoryEntity("Gaming", R.drawable.icon_gaming,R.drawable.card_blue));
+            categoryDao.insert(new CategoryEntity("Music", R.drawable.icon_music,R.drawable.card_orange));
+            categoryDao.insert(new CategoryEntity("Movie", R.drawable.icon_youtube,R.drawable.card_red));
+            categoryDao.insert(new CategoryEntity("Think", R.drawable.icon_calculate,R.drawable.card_neal));
 
+
+            //todo dialog
 //            questionDao.insert(new QuestionEntity("من هو افضل لاعب في العالم؟","ميسي" , "يشسي", "سشيسشي", "سشيشسي", false, "رياضة"));
             return null;
         }

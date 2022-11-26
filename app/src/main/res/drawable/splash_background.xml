@@ -5,7 +5,7 @@
         android:height="200dp"
         android:width="200dp"
         android:bottom="5dp"
-        android:drawable="@drawable/pic2"
+        android:drawable="@drawable/icon_gaming"
         android:end="5dp"
         android:gravity="center"
         android:start="5dp"
